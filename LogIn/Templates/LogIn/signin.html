@@ -1,0 +1,21 @@
+{% extends 'LogIn/base.html' %}
+{% load static %}
+{% block title %} Login {% endblock %}
+{% block custom_link %}     
+    <link rel="stylesheet" href="{% static 'LogIn/signin.css' %}">
+{% endblock %}
+
+
+{% block content %}
+            <form action = "" method="POST">
+                <div class="container center py-4  my-5 bg-dark my-r">
+                    {{log_in_form.as_p}}
+                    {% csrf_token %}
+                    <a href="{% url 'password_reset' %}"><p class="text-md-end text-light my-0 "> Forgot password? </p></a>
+                </div>
+                <input type="submit" value="Sign in" class="submit form-control center">
+            </form>
+            <a href="{% url 'signup' %}">
+                <button class="form-control center mt-4 btn-primary"> Don't have an account? Signup here</button>
+            </a>
+{% endblock %}

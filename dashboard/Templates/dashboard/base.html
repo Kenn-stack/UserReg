@@ -1,0 +1,79 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search Project</title>
+    <link rel="icon" href="{% static 'dashboard/Cookie Monster.png' %}">
+
+    <link rel="stylesheet" href= "{% static 'dashboard/bootstrap.css' %}">
+
+    <script type="text/javascript" src="{% static 'dashboard/bootstrap.js' %}"></script>
+</head>
+<body style="background-color: #212529; color: white">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark" aria-label="Fifth navbar example">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="{% url 'search' %}" style="font: 900;">Samaha</a> 
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsExample05" aria-controls="navbarsExample05" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+    
+          <div class="collapse navbar-collapse" id="navbarsExample05">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="#">Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Link</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+              </li>
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="dropdown05" data-bs-toggle="dropdown" aria-expanded="false">Dropdown</a>
+                <ul class="dropdown-menu" aria-labelledby="dropdown05">
+                  <li><a class="dropdown-item" href="#">Action</a></li>
+                  <li><a class="dropdown-item" href="#">Another action</a></li>
+                  <li><a class="dropdown-item" href="#">Something else here</a></li>
+                </ul>
+              </li>
+            </ul>
+            <form class="navbar-nav me-auto mb-2 mb-lg-0">
+              <input class="form-control" name="q" type="text" placeholder="Search Name" aria-label="Search">
+              <button class="btn btn-primary" type="submit" value="Search" style="margin-left: 5px;"> Search </button>
+            </form>
+          </div>
+        </div>
+      </nav>
+<div style="background-color: #212529; color: white;">
+  {% if msg %}
+    <div class="card-body">
+      <p class="card-text"> {{ msg }}</p>
+    </div>  
+  {% endif %}
+  {% if not msg %}
+    <table class="table table-dark">
+      <thead>
+        <tr>
+          <th scope="col">Firstname</th>
+          <th scope="col">Lastname</th>
+          <th scope="col">Age</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for data in data %}
+          <tr>
+            <td>{{data.first_name}}</td>
+            <td>{{data.last_name}}</td>
+            <td>{{data.age}}</td>
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  {% endif %}
+</div>
+    
+</body>
+</html>

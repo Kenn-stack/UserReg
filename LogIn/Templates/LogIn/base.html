@@ -1,0 +1,19 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %} {% endblock %}</title>
+    <link rel="icon" href="{% static 'LogIn/bootstrap-logo-white.svg' %}">
+    <link rel="stylesheet" href="{% static 'LogIn/bootstrap.css' %}">
+    <link rel="stylesheet" href="{% static 'LogIn/app.css' %}">
+    {% block custom_link %} {% endblock %}
+    <script type="text/javascript" src="{% static 'LogIn/bootstrap.js' %}"></script>
+    <script type="text/javascript" src="{% static 'LogIn/checkbox.js' %}"></script>
+</head>
+
+<body>
+    <div class="text-center my-3"><img src="{% static 'LogIn/bootstrap-logo-white.svg' %}" alt height="57" width="72"></div>
+    {% block content %} {% endblock %}
+</body>

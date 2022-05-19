@@ -1,0 +1,26 @@
+{% extends 'LogIn/base.html' %} 
+{% load static %}
+
+
+{% block title %} User Login {% endblock %}
+{% block custom_link %}     
+    <link rel="stylesheet" href="{% static 'LogIn/signup.css' %}">
+{% endblock %}
+
+
+{% block content %}
+    <form action="" method="post">
+            <div class = "container center py-4 my-sm-4 bg-dark my-r">
+                <h1 class="text-light py-4"> Login Details </h1>
+                {{user_form.as_p}}
+            </div>
+
+            <div class="container center py-4 bg-dark my-sm-4 my-r">
+                <h1 class="text-light py-4">Personal Details</h1>
+                {{profile_form.as_p}}
+            </div>
+
+            {% csrf_token %}
+            <input class="form-control submit center" type="submit" value="Signup">
+    </form>
+{% endblock %}
