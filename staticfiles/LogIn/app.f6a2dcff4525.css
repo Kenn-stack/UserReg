@@ -1,0 +1,26 @@
+body{
+    background-color: #3c3b3d !important;
+}
+
+
+.center{
+    width: 100%;
+    max-width: 500px;
+    margin: auto;
+}
+
+.submit{
+    background-color: #198754;
+    color: white;
+    border-color: #198754;
+    margin-bottom: 20px;
+}
+
+.my-r{
+    border-radius: 20px;
+}
+
+.comment{
+    font-family: cursive;
+    color: #3bcc1e;
+}
