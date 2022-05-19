@@ -21,7 +21,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-ii_hd=63%)u44=!@rxdgcl%hf6o%pfztecaevym-yjp*mm5_f$'
+# SECRET_KEY = 'django-insecure-ii_hd=63%)u44=!@rxdgcl%hf6o%pfztecaevym-yjp*mm5_f$'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -145,5 +145,5 @@ AUTHENTICATION_BACKENDS = [
     'LogIn.authentication.EmailAuthBackend',
 ]
 
-import django_heroku
-django_heroku.settings(locals())
+import django_on_heroku
+django_on_heroku.settings(locals())
