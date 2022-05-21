@@ -79,11 +79,18 @@ class MyPasswordResetForm(PasswordResetForm):
 
 # Custom form for setting new password. Inherits from SetPasswordForm
 class MySetPasswordForm(SetPasswordForm):
-    checkbox = forms.BooleanField(required = False, label = '', widget = forms.CheckboxInput(attrs={'class': 'form-check-input', 'onclick': 'checkBox("id_password")'}))
+    field_order= ('new_password1', 'checkbox1', 'new_password2', 'checkbox1')
+    checkbox1 = forms.BooleanField(required = False, label = '', widget = forms.CheckboxInput(attrs={'class': 'form-check-input', 'onclick': 'checkBox("id_new_password1")'}))
+    checkbox2 = forms.BooleanField(required = False, label = '', widget = forms.CheckboxInput(attrs={'class': 'form-check-input', 'onclick': 'checkBox("id_new_password2")'}))
+
     def __init__(self, *args, **kwargs ):
         super().__init__(*args, **kwargs)
         for field in self.fields:
-            if field == 'password':
-                self.fields[field].widget = forms.PasswordInput(attrs={'placeholder': field, 'class': 'form-control'})
+            if field == 'new_password1':
+                self.fields[field].widget = forms.PasswordInput(attrs={'placeholder': 'Password', 'class': 'form-control'})
+                self.fields[field].label = ''
+
+            elif field == 'new_password2':
+                self.fields[field].widget = forms.PasswordInput(attrs={'placeholder': 'confirm Password', 'class': 'form-control'})
                 self.fields[field].label = ''
 
