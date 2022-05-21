@@ -58,7 +58,7 @@ ROOT_URLCONF = 'UserReg.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [BASE_DIR/ 'LogIn/Templates', BASE_DIR/ 'dashboard/Templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
